@@ -8,7 +8,7 @@ import java.util.List;
 public interface PracaRepositoryPort {
     List<Praca> buscarPracas();
 
-    Praca buscarPeloIdUsuario(String nome);
+    Praca buscarPeloIdProduto(Long id);
 
     void salvar(Praca praca);
 }

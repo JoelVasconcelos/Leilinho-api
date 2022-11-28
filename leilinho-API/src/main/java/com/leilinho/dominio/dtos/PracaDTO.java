@@ -1,5 +1,7 @@
 package com.leilinho.dominio.dtos;
 
+import com.leilinho.dominio.Praca;
+
 public class PracaDTO {
     private Long idPraca;
     private Double valor;
@@ -13,6 +15,12 @@ public class PracaDTO {
         this.idProduto = idProduto;
     }
 
+    public PracaDTO(Praca praca) {
+        this.idPraca = praca.getIdPraca();
+        this.valor = praca.getValor();
+        this.idUsuario = praca.getIdUsuario();
+        this.idProduto = praca.getIdProduto();
+    }
     public Double getValor() {
         return valor;
     }

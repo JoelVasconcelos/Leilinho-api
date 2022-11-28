@@ -29,8 +29,8 @@ public class PracaRepository implements PracaRepositoryPort {
     }
 
     @Override
-    public Praca buscarPeloIdUsuario(String idUsuario) {
-        Optional<PracaEntity> pracaEntity = this.springPracaRepository.findByIdUsuario(idUsuario);
+    public Praca buscarPeloIdProduto(Long idProduto) {
+        Optional<PracaEntity> pracaEntity = this.springPracaRepository.findByIdProduto(idProduto);
 
         if (pracaEntity.isPresent())
             return pracaEntity.get().toPraca();

@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface SpringPracaRepository extends JpaRepository<PracaEntity, Long> {
-    Optional<PracaEntity> findByIdUsuario(String nome);
+    Optional<PracaEntity> findByIdProduto(Long id);
 }

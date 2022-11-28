@@ -1,6 +1,7 @@
 package com.leilinho.dominio.adaptadores.services;
 
 import com.leilinho.dominio.Praca;
+import com.leilinho.dominio.Produto;
 import com.leilinho.dominio.Usuario;
 import com.leilinho.dominio.dtos.PracaDTO;
 import com.leilinho.dominio.dtos.UsuarioDTO;
@@ -10,6 +11,7 @@ import com.leilinho.dominio.portas.repositories.PracaRepositoryPort;
 import com.leilinho.dominio.portas.repositories.UsuarioRepositoryPort;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PracaServiceImp implements PracaServicePort {
@@ -32,5 +34,11 @@ public class PracaServiceImp implements PracaServicePort {
         List<Praca> pracas = this.pracaRepository.buscarPracas();
         List<PracaDTO> pracaDTOS = pracas.stream().map(Praca::toPracaDTO).collect(Collectors.toList());
         return pracaDTOS;
+    }
+
+    @Override
+    public Optional<Praca> buscarPeloIdProduto(Long id) {
+        java.util.Optional<Praca> praca = Optional.ofNullable(pracaRepository.buscarPeloIdProduto(id));
+        return praca;
     }
 }
