@@ -1,11 +1,13 @@
 package com.leilinho.dominio.adaptadores.services;
 
 import com.leilinho.dominio.Pagamento;
+import com.leilinho.dominio.Produto;
 import com.leilinho.dominio.dtos.PagamentoDTO;
 import com.leilinho.dominio.portas.interfaces.PagamentoServicePort;
 import com.leilinho.dominio.portas.repositories.PagamentoRepositoryPort;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PagamentoServiceImp implements PagamentoServicePort {
@@ -27,5 +29,10 @@ public class PagamentoServiceImp implements PagamentoServicePort {
         List<Pagamento> pagamentos = this.pagamentoRepository.buscarTodos();
         List<PagamentoDTO> pagamentoDTOS = pagamentos.stream().map(Pagamento::toPagamentoDTO).collect(Collectors.toList());
         return pagamentoDTOS;
+    }
+    @Override
+    public Optional<Pagamento> buscarPeloIdUsuario(Long idUsuario) {
+        java.util.Optional<Pagamento> pagamento = Optional.ofNullable(pagamentoRepository.buscarPeloIdUsuario(idUsuario));
+        return pagamento;
     }
 }

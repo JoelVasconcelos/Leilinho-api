@@ -8,7 +8,7 @@ import java.util.List;
 public interface PagamentoRepositoryPort {
     List<Pagamento> buscarTodos();
 
-    Pagamento buscarPeloProprietarioCartao(String proprietarioCartao);
+    Pagamento buscarPeloIdUsuario(Long idUsuario);
 
     void salvar(Pagamento pagamento);
 }

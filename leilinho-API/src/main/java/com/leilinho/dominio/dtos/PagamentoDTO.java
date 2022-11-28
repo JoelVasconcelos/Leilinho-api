@@ -1,5 +1,7 @@
 package com.leilinho.dominio.dtos;
 
+import com.leilinho.dominio.Pagamento;
+
 public class PagamentoDTO {
     private Long idPagamento;
     private String numeroCartao;
@@ -16,6 +18,15 @@ public class PagamentoDTO {
         this.cvc = cvc;
         this.validade = validade;
         this.idUsuario = idUsuario;
+    }
+
+    public PagamentoDTO(Pagamento pagamento) {
+        this.idPagamento = pagamento.getIdPagamento();
+        this.numeroCartao = pagamento.getNumeroCartao();
+        this.proprietarioCartao = pagamento.getProprietarioCartao();
+        this.cvc = pagamento.getCvc();
+        this.validade = pagamento.getValidade();
+        this.idUsuario = pagamento.getIdUsuario();
     }
 
     public String getNumeroCartao() {

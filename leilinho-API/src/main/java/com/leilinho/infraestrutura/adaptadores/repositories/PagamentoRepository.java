@@ -29,8 +29,8 @@ public class PagamentoRepository implements PagamentoRepositoryPort {
     }
 
     @Override
-    public Pagamento buscarPeloProprietarioCartao(String proprietarioCartao) {
-        Optional<PagamentoEntity> pagamentoEntity = this.springPagamentoRepository.findByProprietarioCartao(proprietarioCartao);
+    public Pagamento buscarPeloIdUsuario(Long idUsuario) {
+        Optional<PagamentoEntity> pagamentoEntity = this.springPagamentoRepository.findByIdUsuario(idUsuario);
 
         if (pagamentoEntity.isPresent())
             return pagamentoEntity.get().toPagamento();

@@ -10,5 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface SpringPagamentoRepository extends JpaRepository<PagamentoEntity, Long> {
-    Optional<PagamentoEntity> findByProprietarioCartao(String nome);
+    Optional<PagamentoEntity> findByIdUsuario(Long nome);
 }
