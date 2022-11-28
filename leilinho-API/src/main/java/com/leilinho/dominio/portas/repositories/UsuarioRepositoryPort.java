@@ -7,7 +7,7 @@ import java.util.List;
 public interface UsuarioRepositoryPort {
     List<Usuario> buscarTodos();
 
-    Usuario buscarPeloNome(String nome);
+    Usuario buscarPeloEmail(String email);
 
     void salvar(Usuario usuario);
 }

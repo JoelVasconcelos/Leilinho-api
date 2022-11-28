@@ -1,10 +1,11 @@
 package com.leilinho.dominio.portas.interfaces;
 
-import com.leilinho.dominio.dtos.EstoqueDTO;
+import com.leilinho.dominio.Produto;
 import com.leilinho.dominio.dtos.ProdutoDTO;
 import javassist.NotFoundException;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProdutoServicePort {
 
@@ -12,5 +13,5 @@ public interface ProdutoServicePort {
 
     void criarProduto(ProdutoDTO produtoDTO);
 
-    void atualizarEstoque(String nome, EstoqueDTO estoqueDTO) throws NotFoundException;
+    Optional<Produto> buscarPeloId(Long id) throws NotFoundException;
 }

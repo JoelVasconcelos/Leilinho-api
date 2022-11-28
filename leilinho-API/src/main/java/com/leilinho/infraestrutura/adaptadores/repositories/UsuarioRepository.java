@@ -28,8 +28,8 @@ public class UsuarioRepository implements UsuarioRepositoryPort {
 
 
     @Override
-    public Usuario buscarPeloNome(String nome) {
-        Optional<UsuarioEntity> usuarioEntity = this.springUsuarioRepository.findByNome(nome);
+    public Usuario buscarPeloEmail(String email) {
+        Optional<UsuarioEntity> usuarioEntity = this.springUsuarioRepository.findByEmail(email);
 
         if (usuarioEntity.isPresent())
             return usuarioEntity.get().toUsuario();

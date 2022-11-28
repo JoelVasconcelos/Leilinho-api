@@ -26,8 +26,8 @@ public class ProdutoRepository implements ProdutoRepositoryPort {
     }
 
     @Override
-    public Produto buscarPeloNome(String nome) {
-        Optional<ProdutoEntity> produtoEntity = this.springProdutoRepository.findByNome(nome);
+    public Produto buscarPeloId(Long id) {
+        Optional<ProdutoEntity> produtoEntity = this.springProdutoRepository.findById(id);
 
         if (produtoEntity.isPresent())
             return produtoEntity.get().toProduto();

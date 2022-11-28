@@ -52,6 +52,7 @@ public class Pagamento {
     }
 
     public Pagamento(PagamentoDTO pagamentoDTO) {
+        this.idPagamento = pagamentoDTO.getIdPagamento();
         this.numeroCartao = pagamentoDTO.getNumeroCartao();
         this.proprietarioCartao = pagamentoDTO.getProprietarioCartao();
         this.cvc = pagamentoDTO.getCvc();
@@ -61,6 +62,6 @@ public class Pagamento {
 
 
     public PagamentoDTO toPagamentoDTO() {
-        return new PagamentoDTO(this.numeroCartao, this.proprietarioCartao, this.cvc, this.validade, this.idUsuario);
+        return new PagamentoDTO(this.idPagamento, this.numeroCartao, this.proprietarioCartao, this.cvc, this.validade, this.idUsuario);
     }
 }

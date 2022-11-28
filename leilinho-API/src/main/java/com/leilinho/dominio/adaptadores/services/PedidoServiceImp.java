@@ -1,14 +1,12 @@
 package com.leilinho.dominio.adaptadores.services;
 
 import com.leilinho.dominio.Produto;
-import com.leilinho.dominio.dtos.EstoqueDTO;
 import com.leilinho.dominio.dtos.ProdutoDTO;
 import com.leilinho.dominio.portas.interfaces.ProdutoServicePort;
 import com.leilinho.dominio.portas.repositories.ProdutoRepositoryPort;
-import javassist.NotFoundException;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PedidoServiceImp implements ProdutoServicePort {
@@ -32,15 +30,10 @@ public class PedidoServiceImp implements ProdutoServicePort {
         return produtoDTOS;
     }
     ProdutoDTO[] meuarray = new ProdutoDTO[10];
+
     @Override
-    public void atualizarEstoque(String nome, EstoqueDTO estoqueDTO) throws NotFoundException {
-        Produto produto = this.produtoRepository.buscarPeloNome(nome);
-
-        if (Objects.isNull(produto))
-            throw new NotFoundException("Produto não encontrado");
-
-        produto.atualizarEstoque(estoqueDTO.getQuantidade());
-
-        this.produtoRepository.salvar(produto);
+    public Optional<Produto> buscarPeloId(Long id) {
+        java.util.Optional<Produto> produto = Optional.ofNullable(produtoRepository.buscarPeloId(id));
+        return produto;
     }
 }

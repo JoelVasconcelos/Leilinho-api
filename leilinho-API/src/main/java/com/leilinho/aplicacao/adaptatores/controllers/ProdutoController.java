@@ -1,12 +1,14 @@
 package com.leilinho.aplicacao.adaptatores.controllers;
 
-import com.leilinho.dominio.dtos.EstoqueDTO;
+import com.leilinho.dominio.Produto;
 import com.leilinho.dominio.dtos.ProdutoDTO;
 import com.leilinho.dominio.portas.interfaces.ProdutoServicePort;
 import javassist.NotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -28,9 +30,12 @@ public class ProdutoController {
     List<ProdutoDTO> getProdutos() {
         return produtoServicePort.buscarProdutos();
     }
-
-    @PutMapping(value = "/{nome}")
-    void atualizarEstoque(@PathVariable String nome, @RequestBody EstoqueDTO estoqueDTO) throws NotFoundException {
-        produtoServicePort.atualizarEstoque(nome, estoqueDTO);
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> detalhar(@PathVariable Long id) throws NotFoundException {
+        Optional<Produto> produto = produtoServicePort.buscarPeloId(id);
+        if (produto.isPresent()) {
+            return ResponseEntity.ok(new ProdutoDTO(produto.get()));
+        }
+        return ResponseEntity.notFound().build();
     }
 }

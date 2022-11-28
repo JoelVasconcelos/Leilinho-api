@@ -44,7 +44,7 @@ public class Usuario {
     }
 
     public Usuario(UsuarioDTO usuarioDTO) {
-//        this.idUsuario = usuarioDTO.getIdUsuario();
+        this.idUsuario = usuarioDTO.getIdUsuario();
         this.email = usuarioDTO.getEmail();
         this.nome = usuarioDTO.getNome();
         this.senha = usuarioDTO.getSenha();
@@ -53,6 +53,6 @@ public class Usuario {
 
 
     public UsuarioDTO toUsuarioDTO() {
-        return new UsuarioDTO(this.email, this.nome, this.senha, this.imagem);
+        return new UsuarioDTO(this.idUsuario, this.email, this.nome, this.senha, this.imagem);
     }
 }

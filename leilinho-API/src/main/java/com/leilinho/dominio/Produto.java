@@ -64,6 +64,6 @@ public class Produto {
     }
 
     public ProdutoDTO toProdutoDTO() {
-        return new ProdutoDTO(this.nome, this.descricao, this.valor, this.imagem, this.arrematado);
+        return new ProdutoDTO(this.idProduto, this.nome, this.descricao, this.valor, this.imagem, this.arrematado);
     }
 }
