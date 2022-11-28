@@ -9,12 +9,11 @@ import java.util.UUID;
 @Table(name = "produto")
 public class ProdutoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idProduto;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProduto;
     private String nome;
     private String descricao;
     private Double valor;
-    private String quantidade;
     private String imagem;
     private boolean arrematado;
 
@@ -26,7 +25,6 @@ public class ProdutoEntity {
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.valor = produto.getValor();
-        this.quantidade = produto.getQuantidade();
         this.imagem = produto.getImagem();
         this.arrematado = produto.isArrematado();
     }
@@ -36,12 +34,11 @@ public class ProdutoEntity {
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.valor = produto.getValor();
-        this.quantidade = produto.getQuantidade();
         this.imagem = produto.getImagem();
         this.arrematado = produto.isArrematado();
     }
 
     public Produto toProduto() {
-        return new Produto(this.idProduto, this.nome, this.descricao, this.quantidade, this.valor, this.imagem, this.arrematado);
+        return new Produto(this.idProduto, this.nome, this.descricao, this.valor, this.imagem, this.arrematado);
     }
 }

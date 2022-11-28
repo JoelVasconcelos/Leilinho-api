@@ -9,7 +9,7 @@ import java.util.UUID;
 @Table(name = "usuario")
 public class UsuarioEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     private String email;
     private String nome;
