@@ -1,11 +1,7 @@
 package com.leilinho.aplicacao.adaptatores.controllers;
 
-import com.leilinho.dominio.Produto;
 import com.leilinho.dominio.Usuario;
-import com.leilinho.dominio.dtos.EstoqueDTO;
-import com.leilinho.dominio.dtos.ProdutoDTO;
 import com.leilinho.dominio.dtos.UsuarioDTO;
-import com.leilinho.dominio.portas.interfaces.ProdutoServicePort;
 import com.leilinho.dominio.portas.interfaces.UsuarioServicePort;
 import javassist.NotFoundException;
 import org.springframework.http.ResponseEntity;
